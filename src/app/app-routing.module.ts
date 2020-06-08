@@ -3,13 +3,41 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full'
   },
   {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'inicio',
+    loadChildren: () => import('./pages/inicio/inicio.module').then(m => m.InicioPageModule)
+  },
+  {
+    path: 'documentos',
+    loadChildren: () => import('./pages/documentos/documentos.module').then(m => m.DocumentosPageModule)
+  },
+  {
+    path: 'calibracion',
+    loadChildren: () => import('./pages/calibracion/calibracion.module').then(m => m.CalibracionPageModule)
+  },
+  {
+    path: 'personal',
+    loadChildren: () => import('./pages/personal/personal.module').then( m => m.PersonalPageModule)
+  },
+  {
+    path: 'equipos',
+    loadChildren: () => import('./pages/equipos/equipos.module').then( m => m.EquiposPageModule)
+  },
+  {
+    path: 'flujo',
+    loadChildren: () => import('./pages/flujo/flujo.module').then( m => m.FlujoPageModule)
+  },
+  {
+    path: 'temperatura',
+    loadChildren: () => import('./pages/temperatura/temperatura.module').then( m => m.TemperaturaPageModule)
   },
 ];
 

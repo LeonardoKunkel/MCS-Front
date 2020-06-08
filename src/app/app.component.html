@@ -1,3 +1,40 @@
 <ion-app>
-  <ion-router-outlet></ion-router-outlet>
+  <ion-menu contentId="main" menuId="main-menu" side="start" type="overlay">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menú</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-menu-toggle>
+          <ion-item routerLink="/inicio">
+            <ion-icon slot="start" name="log-in-outline"></ion-icon>
+            <ion-label>Inicio</ion-label>
+          </ion-item>
+          <ion-item routerLink="/documentos">
+            <ion-icon slot="start" name="document-text-outline"></ion-icon>
+            <ion-label>Documentos</ion-label>
+          </ion-item>
+          <ion-item routerLink="/personal">
+            <ion-icon slot="start" name="people-circle-outline"></ion-icon>
+            <ion-label>Personal</ion-label>
+          </ion-item>
+          <ion-item routerLink="/calibracion">
+            <ion-icon slot="start" name="speedometer-outline"></ion-icon>
+            <ion-label>Calibración</ion-label>
+          </ion-item>
+          <ion-item routerLink="/equipos">
+            <ion-icon slot="start" name="construct-outline"></ion-icon>
+            <ion-label>Equipos y patrones</ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon slot="start" name="power"></ion-icon>
+            <ion-label>Cerrar sesión</ion-label>
+          </ion-item>
+        </ion-menu-toggle>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main"></ion-router-outlet>
 </ion-app>

@@ -1,0 +1,430 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/calibracion"></ion-back-button>
+    </ion-buttons>
+    
+    <ion-segment mode="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="0">
+        <ion-label>Información</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        <ion-label>Toma de Datos</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form #resultados="ngForm" (ngSubmit)="enviarResul(resultados)">
+    <ion-slides #slides pager="false" [options]="sliderOptions" (ionSlideDidChange)="slideChanged(slides)" (ionSlidesDidLoad)="slideChanged(slides)">
+      <ion-slide>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Datos del cliente</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-item>
+                    <ion-label>Terminal de Almacenamiento y Despacho</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Dirección</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col size="6">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Datos del patrón</ion-card-title>
+                </ion-card-header>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>Marca</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Modelo</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>No. de Serie</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Identificación</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-card>
+            </ion-col>
+            <ion-col size="6">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Datos del IBC</ion-card-title>
+                </ion-card-header>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>Marca</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Modelo</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>No. de Serie</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>Identificación</ion-label>
+                    <ion-input type="text" placeholder="Escribe..."></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-card>
+            </ion-col>
+            <ion-col size="12">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Operador</ion-card-title>
+                </ion-card-header>
+                <ion-item>
+                  <ion-input placeholder="Escribe..."></ion-input>
+                </ion-item>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-slide>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <ion-slide>
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="12">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Condiciones ambientales</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-row>
+                    <ion-col size="12" sizeMd="6" sizeLg="6">
+                      <ion-card-subtitle>Iniciales</ion-card-subtitle>
+                      <hr class="linea">
+                        <ion-list>
+                          <ion-item>
+                            <ion-label>Temperatura °C</ion-label>
+                            <ion-input type="number" placeholder="Escribe" name="CATI" [(ngModel)]="datos.CATI"></ion-input>
+                          </ion-item>
+                          <ion-item>
+                            <ion-label>Humedad %HR</ion-label>
+                            <ion-input type="text" placeholder="Escribe" name="CAHI" [(ngModel)]="datos.CAHI"></ion-input>
+                          </ion-item>
+                          <ion-item>
+                            <ion-label>Presión atmosférica</ion-label>
+                            <ion-input type="text" placeholder="Escribe" name="CAPI" [(ngModel)]="datos.CAPI"></ion-input>
+                          </ion-item>
+                        </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="6" sizeLg="6">
+                      <ion-card-subtitle>Finales</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-label>Temperatura °C</ion-label>
+                          <ion-input type="text" placeholder="Escribe" name="CATF" [(ngModel)]="datos.CATF"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Humedad %HR</ion-label>
+                          <ion-input type="text" placeholder="Escribe" name="CAHF" [(ngModel)]="datos.CAHF"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Presión atmosférica</ion-label>
+                          <ion-input type="text" placeholder="Escribe" name="CAPF" [(ngModel)]="datos.CAPF"></ion-input>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col size="12">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-subtitle>Anote atentamente los resultados obtenidos</ion-card-subtitle>
+                  <ion-card-title>Flujo Alto</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-row>
+                    <ion-col size="12" sizeMd="3" sizeLg="1">
+                      <ion-card-subtitle>Flujo (L/m)</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-input type="number" placeholder="1" name="D1" [(ngModel)]="datos.D1"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="2" name="D2" [(ngModel)]="datos.D2"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="3" name="D3" [(ngModel)]="datos.D3"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="4" name="D4" [(ngModel)]="datos.D4"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="5" name="D5" [(ngModel)]="datos.D5"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="1">
+                      <ion-card-subtitle>Temperatura (°C)</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-input type="number" placeholder="1" name="D6" [(ngModel)]="datos.D6"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="2" name="D7" [(ngModel)]="datos.D7"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="3" name="D8" [(ngModel)]="datos.D8"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="4" name="D9" [(ngModel)]="datos.D9"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="5" name="D10" [(ngModel)]="datos.D10"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="1">
+                      <ion-card-subtitle>Lect. inicial patrón (L)</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-input type="number" placeholder="1" name="D11" [(ngModel)]="datos.D11"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="2" name="D12" [(ngModel)]="datos.D12"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="3" name="D13" [(ngModel)]="datos.D13"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="4" name="D14" [(ngModel)]="datos.D14"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="5" name="D15" [(ngModel)]="datos.D15"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="1">
+                      <ion-card-subtitle>Lect. final patrón (L)</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-input type="number" placeholder="1" name="D16" [(ngModel)]="datos.D16"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="2" name="D17" [(ngModel)]="datos.D17"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="3" name="D18" [(ngModel)]="datos.D18"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="4" name="D19" [(ngModel)]="datos.D19"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="5" name="D20" [(ngModel)]="datos.D20"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="2">
+                      <ion-card-subtitle>FC del Patrón (Adim)</ion-card-subtitle>
+                      <hr class="linea1">
+                      <ion-list>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="2">
+                      <ion-card-subtitle>Volumen corregido del patrón (L)</ion-card-subtitle>
+                      <hr class="linea1">
+                      <ion-list>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="1">
+                      <ion-card-subtitle>Volumen en UCL</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-input type="number" placeholder="1" name="D21" [(ngModel)]="datos.D21"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="2" name="D22" [(ngModel)]="datos.D22"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="3" name="D23" [(ngModel)]="datos.D23"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="4" name="D24" [(ngModel)]="datos.D24"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="5" name="D25" [(ngModel)]="datos.D25"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="1">
+                      <ion-card-subtitle>Factor en UCL</ion-card-subtitle>
+                      <hr class="linea">
+                      <ion-list>
+                        <ion-item>
+                          <ion-input type="number" placeholder="1" name="D26" [(ngModel)]="datos.D26"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="2" name="D27" [(ngModel)]="datos.D27"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="3" name="D28" [(ngModel)]="datos.D28"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="4" name="D29" [(ngModel)]="datos.D29"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-input type="number" placeholder="5" name="D30" [(ngModel)]="datos.D30"></ion-input>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Prom.</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="3" sizeLg="2">
+                      <ion-card-subtitle>FC del Medidor</ion-card-subtitle>
+                      <hr class="linea1">
+                      <ion-list>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                        <ion-item>
+                          <ion-label>Se calcula</ion-label>
+                        </ion-item>
+                      </ion-list>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+            <ion-col size="12">
+              <ion-card>
+                <ion-card-header>
+                  <ion-card-title>Resultado</ion-card-title>
+                </ion-card-header>
+                <ion-card-content>
+                  <ion-row>
+                    <ion-col size="12" sizeMd="4" sizeLg="4">
+                      <hr class="linea1">
+                      <ion-item>
+                        <ion-label>Promedio</ion-label>
+                        <ion-label>Se calcula</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4" sizeLg="4">
+                      <hr class="linea1">
+                      <ion-item>
+                        <ion-label><p>Desviación Estándar</p></ion-label>
+                        <ion-label>Se calcula</ion-label>
+                      </ion-item>
+                    </ion-col>
+                    <ion-col size="12" sizeMd="4" sizeLg="4">
+                      <hr class="linea1">
+                      <ion-item>
+                        <ion-label><p>Nuevo factor</p></ion-label>
+                        <ion-label>Se calcula</ion-label>
+                      </ion-item>
+                    </ion-col>
+                  </ion-row>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-button type="submit" expand="full" shape="round" color="success">
+            Guardar datos
+          </ion-button>
+        </ion-grid>
+      </ion-slide>
+    </ion-slides>
+  </form>
+</ion-content>
