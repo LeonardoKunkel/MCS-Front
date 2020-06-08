@@ -39,6 +39,10 @@ const routes: Routes = [
     path: 'temperatura',
     loadChildren: () => import('./pages/temperatura/temperatura.module').then( m => m.TemperaturaPageModule)
   },
+  {
+    path: 'terminales',
+    loadChildren: () => import('./pages/terminales/terminales.module').then( m => m.TerminalesPageModule)
+  },
 ];
 
 @NgModule({

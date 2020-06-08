@@ -95,7 +95,15 @@ export class FlujoPage implements OnInit {
     });
     toast.present();
 
-    const volindicado1 = this.datos.D11 - this.datos.D16 * this.datos.FCP1;
+    const volindicado1 = (this.datos.D11 - this.datos.D16) * this.datos.FCP1;
     this.datos.VC1 = volindicado1;
+    const volindicado2 = (this.datos.D12 - this.datos.D17) * this.datos.FCP2;
+    this.datos.VC2 = volindicado2;
+    const volindicado3 = (this.datos.D13 - this.datos.D18) * this.datos.FCP3;
+    this.datos.VC3 = volindicado3;
+    const volindicado4 = (this.datos.D14 - this.datos.D19) * this.datos.FCP4;
+    this.datos.VC4 = volindicado4;
+    const volindicado5 = (this.datos.D15 - this.datos.D20) * this.datos.FCP5;
+    this.datos.VC5 = volindicado5;
   }
 }
