@@ -6,10 +6,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inicio.page.scss'],
 })
 export class InicioPage implements OnInit {
-
-  constructor() { }
+  darkMode: boolean = false;
+  constructor() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    this.darkMode = prefersDark.matches;
+   }
 
   ngOnInit() {
   }
-
+cambio(){   
+   document.body.classList.toggle('dark');
+ }
 }

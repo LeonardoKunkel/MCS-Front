@@ -43,6 +43,15 @@ const routes: Routes = [
     path: 'terminales',
     loadChildren: () => import('./pages/terminales/terminales.module').then( m => m.TerminalesPageModule)
   },
+  {
+    path: 'precion',
+    loadChildren: () => import('./pages/precion/precion.module').then( m => m.PrecionPageModule)
+  },  {
+    path: 'presion-model',
+    loadChildren: () => import('./pages/presion-model/presion-model.module').then( m => m.PresionModelPageModule)
+  }
+
+
 ];
 
 @NgModule({

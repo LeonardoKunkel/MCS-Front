@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/calibracion"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Presión</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="adddates()">
+        <ion-icon name="bar-chart-outline" slot="end"></ion-icon>
+        Capturar datos de los patrones
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="12" sizeLg= "10">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">Datos del cliente</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form #formulario="ngForm" (ngSubmit)="enviarForm(formulario)">
+              <ion-item>
+                <ion-label position="floating">Terminales</ion-label>
+                <ion-select (ionChange)="optionsFn(item)" [(ngModel)]="place.terminal" name="terminal">
+                  <ion-select-option *ngFor="let dod of terminales" value="{{dod.tad}}" >{{dod.tad}}</ion-select-option>
+                </ion-select>
+              </ion-item>
+              <div *ngFor="let tS of terminalSeleccionada">
+                <ion-item>
+                  <ion-label>Estado: <br> <b>{{tS.estado}}</b></ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Ciudad: <br> <b>{{tS.ciudad}}</b></ion-label>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Ubicación: <br> <b>{{tS.calle}}</b></ion-label>
+                </ion-item>
+              </div>
+              <ion-item-divider color="light">
+                <ion-label >Datos del patrón de medición</ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label position="floating">Marca: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Modelo: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">N° Serie: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Identificación: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item-divider color="light">
+                <ion-label >Datos del patrón de IBC</ion-label>
+              </ion-item-divider>
+              <ion-item>
+                <ion-label position="floating">Marca: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Modelo: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">N° Serie: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Identificación: </ion-label>
+                <ion-input></ion-input>
+              </ion-item>
+              <ion-item-divider>
+                <ion-label>Label</ion-label>
+              </ion-item-divider>
+            </form>
+            <ion-button (click)="onClick()" expand="block" fill="clear" shape="round" >
+              Click me
+            </ion-button>
+
+            <canvas baseChart
+            [datasets]="chartData"
+            [labels]="chartLabel"
+            [chartType]="chartType"
+            [colors]="chartColors"
+            >
+            </canvas>
+
+
+
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

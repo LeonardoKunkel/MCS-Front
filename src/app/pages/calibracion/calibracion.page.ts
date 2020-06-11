@@ -22,7 +22,7 @@ export class CalibracionPage implements OnInit {
   }
 
   irPresion() {
-    this.navCtrl.navigateForward('flujo');
+    this.navCtrl.navigateForward('precion');
   }
 
   irDimen() {

@@ -9,7 +9,33 @@
 
 <ion-content>
   <ion-grid fixed>
-    <h1>Lista de Terminales de Almacenamiento y Despacho</h1>
-    
+    <ion-row>
+      <ion-col size="12" sizeLg ="10" style="margin: auto;" *ngFor= "let trmls of terminales">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle class="ion-text-center" style="font-size: 25px;"><b>TAD</b></ion-card-subtitle>
+            <ion-card-title>{{trmls.tad}}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <img src="https://previews.123rf.com/images/luplupme/luplupme1610/luplupme161000138/63465375-el-tanque-de-petr%C3%B3leo-en-el-terminal-de-servicio-de-carga-f%C3%A1brica-de-tuber%C3%ADas-se%C3%B1al-de-gas%C3%B3leo-bomba-qu%C3%ADmica-del-ac.jpg" alt="">
+            <ion-item>
+              <ion-label><b>Estado: </b> <br> {{trmls.estado}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Ciudad:</b> <br> {{trmls.ciudad}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Codigo Postal:</b> <br> {{trmls.cp}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Calle:</b> <br> {{trmls.calle}}</ion-label>
+            </ion-item>
+            <ion-item>
+              <ion-label><b>Numero:</b> <br> {{trmls.numer}}</ion-label>
+            </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
   </ion-grid>
 </ion-content>
