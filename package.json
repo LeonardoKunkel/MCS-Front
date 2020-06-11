@@ -1,4 +1,4 @@
-{
+ {
   "name": "MCS-Front",
   "version": "0.0.1",
   "author": "Ionic Framework",
@@ -28,6 +28,7 @@
     "chart.js": "^2.9.3",
     "chartjs-plugin-zoom": "^0.7.7",
     "ng2-charts": "^2.3.2",
+    "pdfmake": "^0.1.65",
     "rxjs": "~6.5.1",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

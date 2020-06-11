@@ -12,16 +12,9 @@ import { HttpClientModule } from '@angular/common/http'
 import 'chartjs-plugin-zoom';
 
 @NgModule({
-  declarations: [
-    AppComponent],
-  entryComponents: [
-
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule, 
-    IonicModule.forRoot(), 
-    AppRoutingModule],
+  declarations: [AppComponent],
+  entryComponents: [],
+  imports: [BrowserModule, HttpClientModule, IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,
