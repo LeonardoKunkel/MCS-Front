@@ -1,0 +1,181 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Captura de datos</ion-title>
+  </ion-toolbar>
+    
+  <ion-segment mode="md" [(ngModel)]="segment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="0">
+      <ion-label>Condiciones Ambientales</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="1">
+      <ion-label>Flujo Alto</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      <ion-label>Resultado</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+</ion-header>
+
+<ion-content>
+  <ion-slides #slides pager="false" [options]="sliderOptions" (ionSlideDidChange)="slideChanged(slides)" (ionSlidesDidLoad)="slideChanged(slides)">
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Temperatura inicial</ion-card-subtitle>
+          <ion-card-title>Temperaturas</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item>
+            <ion-label position="floating" required>Temperatura °C</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" required>Humedad %HR</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" required>Presión atmosferica</ion-label>
+            <ion-input></ion-input>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+          <ion-card-title>Awesome Title</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <ion-grid fixed>
+            <ion-row>
+              <ion-col size="6" siseLg="4">
+                <ion-item-divider color="primary">
+                  <ion-label>Flujo(L/m)</ion-label>
+                </ion-item-divider>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>1-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>3-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>4-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>5-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+              <ion-col size="6" siseLg="4">
+                <ion-item-divider color="primary">
+                  <ion-label>Temperatura(°C)</ion-label>
+                </ion-item-divider>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>1-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>3-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>4-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>5-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+              <ion-col size="6" siseLg="4">
+                <ion-item-divider color="primary">
+                  <ion-label>Lectura Inicial del patrón(L)</ion-label>
+                </ion-item-divider>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>1-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>3-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>4-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>5-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                </ion-list>
+
+              </ion-col>
+              <ion-col size="6" siseLg="4">
+                <ion-item-divider color="primary">
+                  <ion-label>Lectura final del patrón(L)</ion-label>
+                </ion-item-divider>
+                <ion-list>
+                  <ion-item>
+                    <ion-label>1-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>2-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>3-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>4-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                  <ion-item>
+                    <ion-label>5-</ion-label>
+                    <ion-input></ion-input>
+                  </ion-item>
+                </ion-list>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+    <ion-slide>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Awesome Subtitle</ion-card-subtitle>
+          <ion-card-title>Awesome Title</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          Awesome content
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+<ion-button (click)="close()" expand="block" fill="clear" shape="round">
+  Cerrar
+</ion-button>
+</ion-content>

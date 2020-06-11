@@ -8,15 +8,35 @@
 </ion-header>
 
 <ion-content>
+  <ion-list>
+    <ion-item>
+      <ion-icon slot="start" name="moon"></ion-icon>
+      <ion-label>Dark Mode</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="darkMode" (ionChange)="cambio()"></ion-toggle>
+    </ion-item>
+  </ion-list>
   <ion-grid fixed>
     <ion-row>
-      <ion-col size="12">
+      <ion-col size="12" sizeLg="6" style="margin: auto;">
         <ion-card>
           <ion-card-content>
             <div id="container">
-              <p>
-                Contenido mamalón!
-              </p>
+              <ion-title>¿Que es el Metrology Control System?</ion-title><br>
+              <p class="ion-text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quod sed! Deleniti veritatis totam, aut optio voluptates est temporibus at quidem assumenda mollitia dolore quasi laborum culpa dicta? Magnam, harum.</p>
+            </div>
+            <div id="container">
+              <ion-title>¿Cual es su proposito?</ion-title><br>
+              <p class="ion-text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet, quod sed! Deleniti veritatis totam, aut optio voluptates est temporibus at quidem assumenda mollitia dolore quasi laborum culpa dicta? Magnam, harum.</p>
+            </div>
+            <div id="container">
+              <ion-title>Ventajas</ion-title>
+              <ul>
+                <li>1-Ventaja</li>
+                <li>2-Ventaja</li>
+                <li>3-Ventaja</li>
+                <li>4-Ventaja</li>
+                <li>5-Ventaja</li>
+              </ul>
             </div>
           </ion-card-content>
         </ion-card>
